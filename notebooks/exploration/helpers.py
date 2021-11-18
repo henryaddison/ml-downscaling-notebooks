@@ -8,7 +8,7 @@ platecarree = ccrs.PlateCarree()
 
 def plot_with_ts(slices, timestamps, variable='pr', vmax=None, cmap='YlGn'):
     for t, timestamp in enumerate(timestamps):        
-        f, axes = plt.subplots(1, len(slices), figsize=(20, 6), subplot_kw={'projection': cp_model_rotated_pole})
+        f, axes = plt.subplots(1, len(slices), figsize=(30, 6), subplot_kw={'projection': cp_model_rotated_pole})
         f.tight_layout(h_pad=2)
         # make sure axes is 2-d even if only 1 timestamp and or slice
         axes = axes.reshape(1,len(slices))
