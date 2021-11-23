@@ -7,6 +7,7 @@ cp_model_rotated_pole = ccrs.RotatedPole(pole_longitude=177.5, pole_latitude=37.
 platecarree = ccrs.PlateCarree()
 
 def plot_with_ts(slices, timestamps, variable='pr', vmax=None, cmap='YlGn'):
+    figs = []
     for t, timestamp in enumerate(timestamps):        
         f, axes = plt.subplots(1, len(slices), figsize=(30, 6), subplot_kw={'projection': cp_model_rotated_pole})
         f.tight_layout(h_pad=2)
@@ -28,7 +29,9 @@ def plot_with_ts(slices, timestamps, variable='pr', vmax=None, cmap='YlGn'):
             
             data.sel(time=timestamp)[variable].plot(ax=ax, x=x, y=y, add_colorbar=True, transform = transform, vmin=0, vmax=vmax, cmap=cmap)
 
-    plt.show()
+        figs.append(f)
+#     plt.show()
+    return figs
 
 MODEL2RES = {
     "gcm": "60km",
