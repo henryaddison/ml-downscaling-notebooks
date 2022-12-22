@@ -5,7 +5,6 @@ channels:
 dependencies:
   - bottleneck
   - cdo
-  - conda=22.11.1
   - dask
   - iris
   - jupyterlab
