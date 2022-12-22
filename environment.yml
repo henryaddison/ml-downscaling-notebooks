@@ -1,0 +1,20 @@
+name: downscaling-notebooks
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - bottleneck
+  - cdo
+  - dask
+  - iris
+  - jupyterlab
+  - metpy
+  - nc-time-axis
+  - netcdf4
+  - pint
+  - pip
+  - pytest
+  - python=3.9.15
+  - python-cdo
+  - typer
+  - xarray
