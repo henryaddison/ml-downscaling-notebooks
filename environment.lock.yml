@@ -1,5 +1,6 @@
 name: downscaling-notebooks
 channels:
+  - fastai
   - conda-forge
   - defaults
 dependencies:
@@ -12,6 +13,7 @@ dependencies:
   - argon2-cffi=21.3.0=pyhd8ed1ab_0
   - argon2-cffi-bindings=21.2.0=py39hb9d737c_3
   - asttokens=2.2.1=pyhd8ed1ab_0
+  - astunparse=1.6.3=pyhd8ed1ab_0
   - attrs=22.2.0=pyh71513ae_0
   - babel=2.11.0=pyhd8ed1ab_0
   - backcall=0.2.0=pyh9f0ad1d_0
@@ -55,8 +57,10 @@ dependencies:
   - eccodes=2.27.1=h7f7619e_0
   - entrypoints=0.4=pyhd8ed1ab_0
   - exceptiongroup=1.0.4=pyhd8ed1ab_0
+  - execnb=0.1.4=py_0
   - executing=1.2.0=pyhd8ed1ab_0
   - expat=2.5.0=h27087fc_0
+  - fastcore=1.5.27=py_0
   - fftw=3.3.10=nompi_hf0379b8_106
   - flit-core=3.8.0=pyhd8ed1ab_0
   - font-ttf-dejavu-sans-mono=2.37=hab24e00_0
@@ -74,6 +78,7 @@ dependencies:
   - future=0.18.2=pyhd8ed1ab_6
   - geos=3.11.1=h27087fc_0
   - gettext=0.21.1=h27087fc_0
+  - ghapi=1.0.3=py_0
   - graphite2=1.3.13=h58526e2_1001
   - harfbuzz=6.0.0=h8e241bc_0
   - hdf4=4.2.15=h9772cbc_5
@@ -160,6 +165,7 @@ dependencies:
   - nbconvert=7.2.7=pyhd8ed1ab_0
   - nbconvert-core=7.2.7=pyhd8ed1ab_0
   - nbconvert-pandoc=7.2.7=pyhd8ed1ab_0
+  - nbdev=2.3.9=py_0
   - nbformat=5.7.1=pyhd8ed1ab_0
   - nc-time-axis=1.4.1=pyhd8ed1ab_0
   - ncurses=6.3=h27087fc_1
@@ -244,6 +250,7 @@ dependencies:
   - udunits2=2.2.28=hc3e0081_0
   - unicodedata2=15.0.0=py39hb9d737c_0
   - urllib3=1.26.13=pyhd8ed1ab_0
+  - watchdog=2.2.0=py39hf3d152e_0
   - wcwidth=0.2.5=pyh9f0ad1d_2
   - webencodings=0.5.1=py_1
   - websocket-client=1.4.2=pyhd8ed1ab_0
