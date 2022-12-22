@@ -1,3 +1,0 @@
-# ignore any local output from notebooks like datasets or images
-*.nc
-*.png

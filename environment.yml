@@ -1,5 +1,6 @@
 name: downscaling-notebooks
 channels:
+  - fastai
   - conda-forge
   - defaults
 dependencies:
@@ -9,6 +10,7 @@ dependencies:
   - iris
   - jupyterlab
   - metpy
+  - nbdev
   - nc-time-axis
   - netcdf4
   - pint
