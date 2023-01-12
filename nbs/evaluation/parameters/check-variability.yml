@@ -1,0 +1,36 @@
+split: "val"
+data_config:
+  - datasets:
+      CPM: "bham_gcmx-4x_spechum-temp-vort_random"
+      GCM: "bham_60km-4x_spechum-temp-vort_random"
+  - runs:
+      - ["bham-4x_STV_random-ls8-IStanTSqrt", "checkpoint-20", "Stan;Sqrt step training"]
+      - ["bham-4x_STV_random-IStanTSqrt-2", "epoch-100", "Stan;Sqrt epoch training"]
+      - ["bham-4x_STV_random-Iv1Tv1", "epoch-100", "STV v1;v1"]
+      - ["bham-4x_STV_random-Iv1Tv1-2", "epoch-100", "STV v1;v1 again"]
+desc: |
+  Still spechum, temp, vorticity 60km -> 2.2km-4x over Birmingham
+
+  Compare:
+
+  * 2 independent runs of IStanTSqrt (training and sampling)
+  * 2 independent runs for Iv1Tv1 (training and sampling)
+
+
+  ## Diff model
+
+  8-channels loc-spec params
+
+  Inputs: 5 levels of spechum, temp and vorticity
+
+  Target domain and resolution: 64x64 2.2km-4x England and Wales
+
+  Input resolution: 60km/gcmx
+
+  Input transform: standardize (based on train set mean and std) then devide by standardized train set max
+
+  Target transform: sqrt then divide by sqrted train set max
+
+  Sample inverse transform: multiply by saved train set max, clip negative values to 0 then square
+
+  Input transforms are fitted on dataset in use (ie separate GCM and CPM versions) while target transform is fitted only at training on the CPM dataset
