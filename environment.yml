@@ -13,6 +13,7 @@ dependencies:
   - nbdev
   - nc-time-axis
   - netcdf4
+  - papermill=2
   - pint
   - pip
   - pysteps
