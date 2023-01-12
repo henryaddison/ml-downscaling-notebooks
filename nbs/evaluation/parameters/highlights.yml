@@ -4,8 +4,8 @@ data_config:
         CPM: "bham_gcmx-4x_spechum-temp-vort_random"
         GCM: "bham_60km-4x_spechum-temp-vort_random"
       runs:
-        # - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrt", "epoch-100", "Stan;Sqrt"]
-        -  ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrturrecen", "epoch-100", "Stan;Sqrt,UR,recen"]
+        # - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrt", "epoch-100", "STV Stan;Sqrt"]
+        -  ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrturrecen", "epoch-100", "STV"]
         -  ["u-net/bham-4x_STV_random-IstanTsqrturrecen", "epoch-500", "u-net Stan;Sqrt,UR,recen"]
     - datasets:
         CPM: "bham_gcmx-4x_psl-temp-vort_random"
