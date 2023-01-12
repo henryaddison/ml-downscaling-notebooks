@@ -1,0 +1,29 @@
+data_config:
+  - datasets:
+      CPM: "bham_gcmx-4x_psl-temp-vort_random"
+      GCM: "bham_60km-4x_psl-temp-vort_random"
+    runs:
+      - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_PslTV_random-IstanTsqrturrecen", "epoch-100", "Run 1"]
+      - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_PslTV_random-IstanTsqrturrecen-2", "epoch-100", "Run 2"]
+      - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_PslTV_random-IstanTsqrturrecen-3", "epoch-100", "Run 3"]
+      - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_PslTV_random-IstanTsqrturrecen-4", "epoch-100", "Run 4"]
+desc: |
+  Compare different model runs based on inputs:
+
+  * PslTV
+
+  For each version: inputs are standardized; target is sqrt, divided by max to put on [0,1] then recentred to [-1,1]
+
+  NO PIXELMMS
+
+  ## Diff model
+
+  8-channels loc-spec params
+
+  Inputs: all at 5 levels
+
+  Target domain and resolution: 64x64 2.2km-4x England and Wales
+
+  Input resolution: 60km/gcmx
+
+  Input transforms are fitted on dataset in use (ie separate GCM and CPM versions) while target transform is fitted only at training on the CPM dataset

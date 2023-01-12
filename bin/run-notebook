@@ -4,5 +4,17 @@ set -euo pipefail
 
 notebook_filepath=$1
 
-jupyter nbconvert --to notebook --execute ${notebook_filepath}
-mv ${notebook_filepath/ipynb/nbconvert.ipynb} ${notebook_filepath}
+if [ $# -eq 2 ]; then # if parameters file provided
+  parameters_filepath=$2
+
+  output_dirpath="$(dirname ${notebook_filepath})/output"
+  parameters=$(basename ${parameters_filepath} .yml)
+  output_filename="$(basename ${notebook_filepath} .ipynb)-${parameters}.ipynb"
+  output_filepath=${output_dirpath}/${output_filename}
+
+  mkdir -p ${output_dirpath}
+
+  papermill ${notebook_filepath} ${output_filepath} -f ${parameters_filepath}
+else
+  papermill ${notebook_filepath} ${notebook_filepath}
+fi

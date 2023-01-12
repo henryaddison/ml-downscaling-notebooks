@@ -1,0 +1,48 @@
+split: "val"
+data_config:
+    - datasets:
+        CPM: "bham_gcmx-4x_spechum-temp-vort_random"
+        GCM: "bham_60km-4x_spechum-temp-vort_random"
+      runs:
+        # - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrt", "epoch-100", "STV Stan;Sqrt"]
+        -  ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_STV_random-IstanTsqrturrecen", "epoch-100", "STV"]
+        -  ["u-net/bham-4x_STV_random-IstanTsqrturrecen", "epoch-500", "u-net Stan;Sqrt,UR,recen"]
+    - datasets:
+        CPM: "bham_gcmx-4x_psl-temp-vort_random"
+        GCM: "bham_60km-4x_psl-temp-vort_random"
+      runs:
+       - ["score-sde/subvpsde/xarray_cncsnpp_continuous/bham-4x_PslTV_random-IstanTsqrturrecen", "epoch-100", "PslTV"]
+    # - datasets:
+    #     CPM: "bham_gcmx-4x_pr_random"
+    #     GCM: "bham_60km-4x_pr_random"
+    #   runs:
+    #     - ["id-pr", "epoch-0", "LR precip"]
+    - datasets:
+        CPM: "bham_gcmx-4x_linpr_random"
+        GCM: "bham_60km-4x_linpr_random"
+      runs:
+        - ["id-linpr", "epoch-0", "LR lin precip"]
+desc: |
+    Compare:
+
+    ### Diffusion models
+    * STV IstanTsqrt
+    * STV IstanTsqrturecen
+    * PslTV IstanTsqrturrecen
+    ### U-net models
+    * STV IstanTsqrturrecen
+    ### Lo-res precip
+    * id-pr
+    * id-linpr
+
+    ## Diff models and U-net models
+
+    8-channels loc-spec params (diff models only)
+
+    Inputs from: 5 levels of spechum, temp and vorticity
+
+    Target domain and resolution: 64x64 2.2km-4x England and Wales
+
+    Input resolution: 60km/gcmx
+
+    Input transforms are fitted on dataset in use (ie separate GCM and CPM versions) while target transform is fitted only at training on the CPM dataset
